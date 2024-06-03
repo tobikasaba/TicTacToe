@@ -1,5 +1,6 @@
-from player import HumanPlayer, RandomeComuterPlayer
+from player import HumanPlayer, RandomComuterPlayer, GenuisComputerPlayer
 import time
+
 
 class TicTacToe:
     def __init__(self):
@@ -112,16 +113,33 @@ def play(game, x_player, o_player, print_game=True):
 
             # after we made our move, we need to alternate letters
             letter = "O" if letter == "X" else "X"
-        
+
         # adding a delay for computers response
-        time.sleep(0.8)
+        if print_game:
+            time.sleep(0.8)
 
     if print_game:
         print("It\'s a tie")
 
 
 if __name__ == "__main__":
-    x_player = HumanPlayer("X")
-    o_player = RandomeComuterPlayer("O")
-    t = TicTacToe()
-    play(t, x_player, o_player, print_game=True)
+       
+    x_wins = 0
+    o_wins = 0
+    ties = 0
+
+    for i in range(1000):
+        x_player = RandomComuterPlayer("X")
+        o_player = GenuisComputerPlayer("O")
+        t = TicTacToe()
+        result = play(t, x_player, o_player, print_game=False)
+
+        if result == "X":
+            x_wins += 1
+        elif result == "O":
+            o_wins += 1
+        else:
+            ties += 1
+
+    print(
+        f" At the end of the game, X won {x_wins} time(s), O won {o_wins} time(s) and the game was tied {ties} times(s)")
