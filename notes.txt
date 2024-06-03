@@ -1,0 +1,8 @@
+Minimax algorithm:
+This is a decision making algorithm built off a maximising minimising concept. That is, you’re trying to maximise your win while your opponent is trying to minimise their loss.
+Logic used is:
+winners representation (-1 for O and +1 for X)
+formula = (winners represennation) * (the number of spaces left at point of win {if there are no empty squares, 1 is used})
+Maximiser respensents X
+Minimiser function represents O.
+In the decision tree of which move to make, X favours the greater posotive value while O favours the lesser values.
