@@ -124,26 +124,20 @@ def play(game, x_player, o_player, print_game=True):
 
 if __name__ == "__main__":
 
-    def two_human_players():
-        x_player = HumanPlayer("X")
-        o_player = HumanPlayer("O")
+    def setup_and_play(x_player_class, o_player_class, print_game=True):
+        x_player = x_player_class("X")
+        o_player = o_player_class("O")
         t = TicTacToe()
-        result = play(t, x_player, o_player, print_game=True)
-        return result
+        return play(t, x_player, o_player, print_game=print_game)
+
+    def two_human_players():
+        return setup_and_play(HumanPlayer, HumanPlayer, print_game=True)
 
     def human_v_genius_computer():
-        x_player = HumanPlayer("X")
-        o_player = GenuisComputerPlayer("O")
-        t = TicTacToe()
-        result = play(t, x_player, o_player, print_game=True)
-        return result
+        return setup_and_play(HumanPlayer, GenuisComputerPlayer, print_game=True)
 
     def human_v_rand_computer():
-        x_player = HumanPlayer("X")
-        o_player = RandomComputerPlayer("O")
-        t = TicTacToe()
-        result = play(t, x_player, o_player, print_game=True)
-        return result
+        return setup_and_play(HumanPlayer, RandomComputerPlayer, print_game=True)
 
     def rand_computer_v_genius_computer():
         x_wins = 0
@@ -151,11 +145,8 @@ if __name__ == "__main__":
         ties = 0
 
         for i in range(1000):
-            x_player = RandomComputerPlayer("X")
-            o_player = GenuisComputerPlayer("O")
-            t = TicTacToe()
-            result = play(t, x_player, o_player, print_game=False)
-
+            result = setup_and_play(
+                RandomComputerPlayer, GenuisComputerPlayer, print_game=False)
             if result == "X":
                 x_wins += 1
             elif result == "O":
@@ -164,6 +155,9 @@ if __name__ == "__main__":
                 ties += 1
 
         print(
-        f" At the end of the game, X won {x_wins} time(s), O won {o_wins} time(s) and the game was tied {ties} times(s)")
+            f"At the end of the game, X won {x_wins} time(s), O won {o_wins} time(s) and the game was tied {ties} time(s)")
 
-    human_v_rand_computer()
+    # two_human_players()
+    # human_v_genius_computer()
+    # human_v_rand_computer()
+    rand_computer_v_genius_computer()
