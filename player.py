@@ -12,7 +12,7 @@ class Player:
         pass
 
 
-class RandomComuterPlayer(Player):
+class RandomComputerPlayer(Player):
     def __init__(self, letter):
         super().__init__(letter)
 
