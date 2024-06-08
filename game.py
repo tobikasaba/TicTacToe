@@ -15,7 +15,7 @@ class TicTacToe:
 
     @staticmethod
     def print_board_nums():
-        # 0 | 1 | 2 etc (tells us what number corresponds to which spot on the box)
+        # 0 | 1 | 2 etc. (tells us what number corresponds to which spot on the box)
         number_board = [[str(i) for i in range(j * 3, (j + 1) * 3)]
                         for j in range(3)]
         for row in number_board:
@@ -50,7 +50,7 @@ class TicTacToe:
         return False
 
     def winner(self, square, letter):
-        # wiiner if 3 in a row anywhere. we have to check all of these!
+        # winner if 3 in a row anywhere. we have to check all of these!
         # first let's check the row
         row_ind = square // 3
         row = self.board[row_ind * 3: (row_ind + 1) * 3]
@@ -93,7 +93,7 @@ def play(game, x_player, o_player, print_game=True):
     # iterate while the game still has empty squares
     # (we don't have to worry about winner because we'll just return that which breaks the loop)
     while game.empty_squares():
-        # get the moce from the appraopriate plater
+        # get the move from the appropriate plater
         if letter == "O":
             square = o_player.get_move(game)
         else:

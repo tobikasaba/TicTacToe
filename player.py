@@ -18,8 +18,8 @@ class RandomComputerPlayer(Player):
 
     def get_move(self, game):
         # game is an instance of TicTacToe passed from play() function.
-        # as long as the method is called on insatnces of TicTacToe
-        # which have access to the available_moves function/method, this wont throw an error
+        # as long as the method is called on instances of TicTacToe
+        # which have access to the available_moves function/method, this won't throw an error
         # get a random valid spot for our next move
         square = random.choice(game.available_moves())
         return square
