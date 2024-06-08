@@ -159,5 +159,5 @@ if __name__ == "__main__":
 
     # two_human_players()
     # human_v_genius_computer()
-    # human_v_rand_computer()
-    rand_computer_v_genius_computer()
+    human_v_rand_computer()
+    # rand_computer_v_genius_computer()
